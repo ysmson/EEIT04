@@ -1,29 +1,27 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>登入</title>
+    <title>首頁</title>
 </head>
 <body>
-    <h1>登入</h1>
+    <h1>歡迎來到首頁！</h1>
 
-    <% if (request.getAttribute("errorMessage") != null) { %>
-        <p style="color:red;"><%= request.getAttribute("errorMessage") %></p>
-    <% } %>
-
-    <form action="${pageContext.request.contextPath}/loginServlet" method="post">
-        <div>
-            <label for="username">帳號：</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-            <label for="password">密碼：</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <button type="submit">登入</button>
-    </form>
-
-    <p>還沒有帳號？<a href="${pageContext.request.contextPath}/register.jsp">註冊</a></p>
+    <%
+        String loggedInUser = (String) session.getAttribute("loggedInUser");
+        if (loggedInUser != null) {
+    %>
+        <p>您已登入，使用者名稱是：<%= loggedInUser %></p>
+        <br>
+        <p><a href="report.jsp">查看交易報表</a></p>
+        <p><a href="addTransaction">新增交易</a></p>  <p><a href="logoutServlet">登出</a></p>
+    <%
+        } else {
+    %>
+        <p style="color:red;">您尚未登入。</p>
+        <p><a href="index.jsp">返回登入頁面</a></p>
+    <%
+        }
+    %>
 </body>
 </html>

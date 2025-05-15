@@ -14,7 +14,7 @@
         <p>您已登入，使用者名稱是：<%= loggedInUser %></p>
         <br>
         <p><a href="report.jsp">查看交易報表</a></p>
-        <p><a href="logoutServlet">登出</a></p>
+        <p><a href="addTransaction">新增交易</a></p>  <p><a href="logoutServlet">登出</a></p>
     <%
         } else {
     %>
