@@ -49,14 +49,15 @@ public class LoginServlet extends HttpServlet {
         }
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-            String sql = "SELECT * FROM user WHERE username = ? AND password = ?";
+            String sql = "SELECT user_id, username FROM user WHERE username = ? AND password = ?"; // 只選擇需要的欄位
             try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                 stmt.setString(1, username);
-                stmt.setString(2, password); // 你可考慮用加密
+                stmt.setString(2, password);
                 try (ResultSet rs = stmt.executeQuery()) {
                     if (rs.next()) {
                         HttpSession session = request.getSession();
-                        session.setAttribute("loggedInUser", username);
+                        session.setAttribute("userId", rs.getInt("user_id")); // 儲存 user_id
+                        session.setAttribute("loggedInUser", rs.getString("username")); // 也可以同時儲存 username
                         response.sendRedirect(request.getContextPath() + "/home.jsp");
                     } else {
                         request.setAttribute("errorMessage", "帳號或密碼錯誤！");

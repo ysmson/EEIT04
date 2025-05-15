@@ -22,7 +22,7 @@ public class AddTransactionServlet extends HttpServlet {
         Integer userId = (Integer) session.getAttribute("userId");
 
         if (userId == null) {
-            response.sendRedirect("index.html"); // 如果未登入，導回登入頁面
+            response.sendRedirect("index.jsp"); // 如果未登入，導回登入頁面 (修改為 index.jsp)
             return;
         }
 
@@ -61,7 +61,7 @@ public class AddTransactionServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Integer userId = (Integer) session.getAttribute("userId");
         if (userId == null) {
-            response.sendRedirect("index.html");
+            response.sendRedirect("index.jsp");  // 修改為 index.jsp
             return;
         }
         request.getRequestDispatcher("add_transaction.jsp").forward(request, response);
