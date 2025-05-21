@@ -8,7 +8,7 @@
         return;
     }
 
-    List<tw.shawn.servlet.model.Transaction> transactions = (List<tw.shawn.servlet.model.Transaction>) request.getAttribute("transactions");
+    List<tw.shawn.model.Transaction> transactions = (List<tw.shawn.model.Transaction>) request.getAttribute("transactions");
 %>
 <html>
 <head>

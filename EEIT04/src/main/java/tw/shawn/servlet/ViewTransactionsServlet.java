@@ -30,6 +30,6 @@ public class ViewTransactionsServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response); // 通常查看交易明細使用 GET 請求
+        doGet(request, response); // 通常查看交易明細使用 GET 請求 
     }
 }

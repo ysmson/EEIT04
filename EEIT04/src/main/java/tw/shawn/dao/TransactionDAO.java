@@ -44,7 +44,7 @@ public class TransactionDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            // 處理 SQL 異常
+            // 處理 SQL 異常 
         }
     }
 
@@ -69,7 +69,7 @@ public class TransactionDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // 處理 SQL 異常
+            // 處理 SQL 異常 
         }
         return transactions;
     }
@@ -100,10 +100,11 @@ public class TransactionDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // 處理 SQL 異常
+            // 處理 SQL 異常 
         }
         return transactions;
     }
 
     // 你可以在這裡加入其他與交易相關的資料庫操作方法，例如查詢特定月份或年份的交易
+}
 }

@@ -42,7 +42,7 @@ public class UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // 處理 SQL 異常
+            // 處理 SQL 異常 
         }
         return user;
     }
@@ -57,7 +57,7 @@ public class UserDAO {
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            // 處理 SQL 異常
+            // 處理 SQL 異常 
         }
     }
 
